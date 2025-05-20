@@ -17,9 +17,9 @@ const HeroSection = () => {
           I build things for the web.
         </h3>
         <p className="max-w-xl text-portfolio-slate text-lg mb-12 animate-fade-in opacity-0" style={{ animationDelay: '400ms' }}>
-          I'm a full-stack developer specializing in building exceptional digital experiences. 
-          Currently, I'm focused on creating accessible, responsive web applications with modern 
-          technologies like Django, Laravel, React, and Vue.js.
+          I'm a full-stack developer with over 8 years of experience, specializing in building robust applications 
+          with Laravel, Django, React, and Vue.js. I focus on creating scalable and efficient systems 
+          while maintaining long-term client relationships.
         </p>
         <div className="animate-fade-in opacity-0" style={{ animationDelay: '500ms' }}>
           <a href="#projects">

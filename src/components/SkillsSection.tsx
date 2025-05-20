@@ -34,16 +34,17 @@ const SkillsSection = () => {
   const frontendTechnologies = [
     { name: 'React', icon: '⚛️' },
     { name: 'Vue.js', icon: '🟢' },
-    { name: 'AngularJS', icon: '🔺' },
     { name: 'JavaScript', icon: '📜' },
     { name: 'TypeScript', icon: '📘' },
     { name: 'HTML5', icon: '📄' },
     { name: 'CSS3', icon: '🎨' },
     { name: 'Tailwind CSS', icon: '🌬️' },
+    { name: 'Bootstrap', icon: '🅱️' },
   ];
 
   const backendTechnologies = [
     { name: 'Django', icon: '🐍' },
+    { name: 'Django REST', icon: '🔄' },
     { name: 'Laravel', icon: '🔴' },
     { name: 'PHP', icon: '🐘' },
     { name: 'Python', icon: '🐍' },
@@ -61,9 +62,17 @@ const SkillsSection = () => {
 
   const devOpsTechnologies = [
     { name: 'Git', icon: '📚' },
+    { name: 'AWS', icon: '☁️' },
     { name: 'Docker', icon: '🐳' },
     { name: 'CI/CD', icon: '🔄' },
-    { name: 'AWS', icon: '☁️' },
+    { name: 'Nginx', icon: '🌐' },
+    { name: 'Heroku', icon: '💜' },
+    { name: 'JIRA', icon: '📋' },
+  ];
+
+  const aiMlTechnologies = [
+    { name: 'AI/ML', icon: '🧠' },
+    { name: 'Data Analysis', icon: '📊' },
   ];
 
   return (
@@ -77,18 +86,32 @@ const SkillsSection = () => {
         </div>
         
         <p className="text-portfolio-slate mb-12 max-w-3xl">
-          Over the years, I've worked with a variety of technologies and frameworks, building everything 
-          from simple landing pages to complex full-stack applications. Here's a breakdown of the technologies I'm proficient in.
+          With over 8 years of experience in web development, I've gained expertise in a variety of technologies.
+          I specialize in building robust, scalable applications while focusing on maintainability and performance.
+          Here's a comprehensive overview of my technical skills:
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <TechnologyCategory title="Frontend" technologies={frontendTechnologies} />
             <TechnologyCategory title="Backend" technologies={backendTechnologies} />
+            <TechnologyCategory title="AI/ML" technologies={aiMlTechnologies} />
           </div>
           <div>
             <TechnologyCategory title="Databases" technologies={databaseTechnologies} />
             <TechnologyCategory title="DevOps & Tools" technologies={devOpsTechnologies} />
+          </div>
+        </div>
+
+        <div className="mt-12 p-6 bg-portfolio-dark rounded-lg">
+          <h3 className="text-xl text-portfolio-light font-semibold mb-4">Personal Traits</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {['Adaptability', 'Team Player', 'Creative', 'Continuous Learner', 'Constructive Feedback'].map((trait) => (
+              <div key={trait} className="text-center p-3 bg-portfolio-navy/50 rounded-lg">
+                <span className="text-portfolio-teal mono mb-2 block">•</span>
+                <span className="text-portfolio-light">{trait}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
