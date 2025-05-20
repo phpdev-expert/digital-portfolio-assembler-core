@@ -11,7 +11,7 @@ const HeroSection = () => {
           Hi, my name is
         </h1>
         <h2 className="text-5xl md:text-7xl font-bold text-portfolio-lightest mb-4 animate-fade-in opacity-0" style={{ animationDelay: '200ms' }}>
-          Full Stack Developer.
+          Dhirendra Singh Bisht.
         </h2>
         <h3 className="text-4xl md:text-6xl font-bold text-portfolio-slate mb-6 animate-fade-in opacity-0" style={{ animationDelay: '300ms' }}>
           I build things for the web.
