@@ -21,7 +21,6 @@ const Navbar = () => {
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -32,7 +31,7 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <a href="#" className="text-portfolio-teal font-bold text-2xl mono">Developer<span className="text-portfolio-light">.</span></a>
+        <a href="#" className="text-portfolio-teal font-bold text-2xl mono">Dhirendra<span className="text-portfolio-light">.</span></a>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:block">

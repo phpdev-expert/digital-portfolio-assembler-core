@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <p className="text-portfolio-slate text-sm">
-              &copy; {new Date().getFullYear()} | Built with React & Tailwind CSS
+              &copy; {new Date().getFullYear()} Dhirendra Singh Bisht | Built with React & Tailwind CSS
             </p>
           </div>
           
