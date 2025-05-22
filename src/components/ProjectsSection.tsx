@@ -19,14 +19,14 @@ interface Project {
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState<Technology>('all');
 
-  // Project data
+  // Project data with updated real project images
   const projects: Project[] = [
     {
       id: 1,
       title: "PodPage",
       description: "A podcast website builder platform developed with Django.",
       technologies: ['django'],
-      imageUrl: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+      imageUrl: "/lovable-uploads/c13dd1c6-2ed1-4e1e-b197-bdd501927fed.png",
       liveUrl: "https://www.podpage.com"
     },
     {
@@ -34,7 +34,7 @@ const ProjectsSection = () => {
       title: "DitchCarbon",
       description: "Carbon footprint tracking application built with Django and React.",
       technologies: ['django', 'react'],
-      imageUrl: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+      imageUrl: "/lovable-uploads/c20e1386-8db2-4742-a0d6-1d56fed188a1.png",
       liveUrl: "https://ditchcarbon.com"
     },
     {
@@ -42,7 +42,7 @@ const ProjectsSection = () => {
       title: "Real Clear Neighborhoods",
       description: "Real estate analytics platform built with Django.",
       technologies: ['django'],
-      imageUrl: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      imageUrl: "/lovable-uploads/2c903f30-993e-4489-8293-4f011e843077.png",
       liveUrl: "https://www.realclearneighborhoods.com"
     },
     {
@@ -50,7 +50,7 @@ const ProjectsSection = () => {
       title: "eRezLife",
       description: "Student housing management system developed with Django and React.",
       technologies: ['django', 'react'],
-      imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
+      imageUrl: "/lovable-uploads/20b5d9ad-aed0-4393-a495-c2ec1e1078d5.png",
       liveUrl: "http://erezlife.com"
     },
     {
@@ -58,7 +58,7 @@ const ProjectsSection = () => {
       title: "Script Sender",
       description: "Automated messaging platform built with Laravel.",
       technologies: ['laravel'],
-      imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+      imageUrl: "/lovable-uploads/20b64252-bfec-4f98-9cf4-79b64c9df1dd.png",
       liveUrl: "https://scriptsender.com"
     },
     {
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
       title: "Brightest",
       description: "ESG reporting platform built with React.",
       technologies: ['react'],
-      imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+      imageUrl: "/lovable-uploads/35b80909-77a9-4a2f-b3f4-6f8bc8a0748e.png",
       liveUrl: "https://www.brightest.io"
     },
     {
@@ -82,7 +82,7 @@ const ProjectsSection = () => {
       title: "Voucherify",
       description: "Promotion management system built with Vue.js.",
       technologies: ['vue'],
-      imageUrl: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7",
+      imageUrl: "/lovable-uploads/d61f851c-6521-4f4d-89a3-2fa78daceb1b.png",
       liveUrl: "https://www.voucherify.io"
     },
     {
@@ -90,7 +90,7 @@ const ProjectsSection = () => {
       title: "Shipping Saint",
       description: "Shipping management platform built with Laravel and Vue.js.",
       technologies: ['laravel', 'vue'],
-      imageUrl: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
+      imageUrl: "/lovable-uploads/71dc0e56-72bb-41fe-b90f-4d6e8f16f2dc.png",
       liveUrl: "https://www.shippingsaint.com"
     },
     {
@@ -98,7 +98,7 @@ const ProjectsSection = () => {
       title: "Fusion Invoice",
       description: "Invoicing application built with Laravel.",
       technologies: ['laravel'],
-      imageUrl: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
+      imageUrl: "/lovable-uploads/4bd4903b-196d-4c7b-869b-950a46d8d74e.png",
       liveUrl: "https://www.fusioninvoice.com"
     }
   ];
