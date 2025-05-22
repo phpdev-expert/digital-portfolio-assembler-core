@@ -100,6 +100,14 @@ const ProjectsSection = () => {
       technologies: ['laravel'],
       imageUrl: "/lovable-uploads/4bd4903b-196d-4c7b-869b-950a46d8d74e.png",
       liveUrl: "https://www.fusioninvoice.com"
+    },
+    {
+      id: 11,
+      title: "Done.fyi",
+      description: "Online academy and educational platform built with Laravel.",
+      technologies: ['laravel'],
+      imageUrl: "/lovable-uploads/3bcddcc8-56dc-41f6-8046-524def589b82.png",
+      liveUrl: "https://done.fyi"
     }
   ];
 
