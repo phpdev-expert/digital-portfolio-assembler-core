@@ -31,11 +31,10 @@ const AboutSection = () => {
           <div className="relative mx-auto w-full max-w-md">
             <div className="relative rounded-md overflow-hidden w-full aspect-square">
               <img 
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
-                alt="Developer portrait" 
-                className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-300"
+                src="/lovable-uploads/cae69900-866e-4036-a35d-e568169946d8.png" 
+                alt="Programming skills illustration showing PHP, CSS, JavaScript, Git, AI, Machine Learning, Python, Vue and React" 
+                className="w-full h-full object-cover hover:transform hover:scale-105 transition-all duration-300"
               />
-              <div className="absolute inset-0 bg-portfolio-teal/20 hover:bg-transparent transition-all duration-300"></div>
             </div>
             <div className="absolute -right-6 -bottom-6 w-full h-full border-2 border-portfolio-teal rounded-md -z-10"></div>
           </div>
