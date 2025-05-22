@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,7 +32,13 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <a href="#" className="text-portfolio-teal font-bold text-2xl mono">Dhirendra<span className="text-portfolio-light">.</span></a>
+        <div className="flex items-center gap-3">
+          <a href="#" className="text-portfolio-teal font-bold text-2xl mono">Dhirendra<span className="text-portfolio-light">.</span></a>
+          <Avatar className="h-10 w-10 border-2 border-portfolio-teal">
+            <AvatarImage src="/lovable-uploads/011f91f0-32ac-4fbe-8c2e-1f9dc8b3ef7f.png" alt="Dhirendra Singh Bisht" />
+            <AvatarFallback className="bg-portfolio-teal/20 text-portfolio-teal">DSB</AvatarFallback>
+          </Avatar>
+        </div>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
