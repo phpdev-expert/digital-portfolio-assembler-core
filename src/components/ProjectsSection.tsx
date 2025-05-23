@@ -5,7 +5,7 @@ import { ExternalLink, Github, Chrome } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Define project types
-type Technology = 'all' | 'django' | 'laravel' | 'react' | 'vue' | 'extensions';
+type Technology = 'all' | 'django' | 'laravel' | 'react' | 'vue' | 'extensions' | 'php';
 
 interface Project {
   id: number;
@@ -19,7 +19,7 @@ interface Project {
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState<Technology>('all');
 
-  // Project data with updated real project images
+  // Project data with updated real project images and new projects
   const projects: Project[] = [
     {
       id: 1,
@@ -65,7 +65,7 @@ const ProjectsSection = () => {
       id: 6,
       title: "Dealership Performance CRM",
       description: "Customer relationship management system for auto dealerships, built with PHP and AngularJS.",
-      technologies: ['laravel'],
+      technologies: ['php'],
       imageUrl: "https://images.unsplash.com/photo-1531297484001-80022131f5a1",
       liveUrl: "https://www.dealershipperformancecrm.com"
     },
@@ -109,7 +109,40 @@ const ProjectsSection = () => {
       imageUrl: "/lovable-uploads/3bcddcc8-56dc-41f6-8046-524def589b82.png",
       liveUrl: "https://done.fyi"
     },
-    // Chrome Extensions added as projects
+    // New projects added
+    {
+      id: 21,
+      title: "RecycleBlu",
+      description: "Recycling and waste management platform built with PHP and Laravel.",
+      technologies: ['php', 'laravel'],
+      imageUrl: "/lovable-uploads/a74836d4-6ff1-4eda-921b-045aa695deb6.png",
+      liveUrl: "https://www.recycleblu.com"
+    },
+    {
+      id: 22,
+      title: "PECB",
+      description: "Professional certification and training platform built with Laravel.",
+      technologies: ['laravel'],
+      imageUrl: "/lovable-uploads/e4fc8702-5842-4504-9efa-00fdcb817baf.png",
+      liveUrl: "http://pecb.com"
+    },
+    {
+      id: 23,
+      title: "The Ukulele Way",
+      description: "Online ukulele learning platform built with PHP.",
+      technologies: ['php'],
+      imageUrl: "/lovable-uploads/37a208c3-56b3-498e-8dbd-54f98cb0ac60.png",
+      liveUrl: "http://theukuleleway.com"
+    },
+    {
+      id: 24,
+      title: "Megatix",
+      description: "Event ticketing and management platform built with PHP.",
+      technologies: ['php'],
+      imageUrl: "/lovable-uploads/fabec6b0-06d4-4591-9037-5bde5776c8b5.png",
+      liveUrl: "https://megatix.com.au"
+    },
+    // Chrome Extensions
     {
       id: 12,
       title: "Group Convert Extension",
@@ -192,6 +225,7 @@ const ProjectsSection = () => {
     { name: 'All', value: 'all' },
     { name: 'Django', value: 'django' },
     { name: 'Laravel', value: 'laravel' },
+    { name: 'PHP', value: 'php' },
     { name: 'React', value: 'react' },
     { name: 'Vue', value: 'vue' },
     { name: 'Chrome Extensions', value: 'extensions', icon: <Chrome size={14} className="mr-1" /> }
@@ -233,22 +267,22 @@ const ProjectsSection = () => {
               key={project.id} 
               className="project-card bg-portfolio-dark rounded-lg overflow-hidden"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-48 sm:h-52 md:h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-portfolio-teal/20 z-10"></div>
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
                 {project.technologies.includes('extensions') && (
-                  <div className="absolute top-2 right-2 bg-portfolio-teal text-portfolio-navy p-1 rounded-md flex items-center">
-                    <Chrome size={16} className="mr-1" /> Extension
+                  <div className="absolute top-2 right-2 bg-portfolio-teal text-portfolio-navy p-1 rounded-md flex items-center text-xs">
+                    <Chrome size={14} className="mr-1" /> Extension
                   </div>
                 )}
               </div>
               <div className="p-6">
                 <h3 className="text-portfolio-lightest text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-portfolio-slate mb-4">{project.description}</p>
+                <p className="text-portfolio-slate mb-4 text-sm">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map(tech => (
                     <span 
