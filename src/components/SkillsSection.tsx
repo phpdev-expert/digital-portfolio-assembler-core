@@ -1,9 +1,18 @@
 
 import React from 'react';
+import { ExternalLink, Chrome } from 'lucide-react';
 
 interface Technology {
   name: string;
   icon: string;
+}
+
+interface ChromeExtension {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  storeUrl: string;
 }
 
 interface CategoryProps {
@@ -75,6 +84,31 @@ const SkillsSection = () => {
     { name: 'Data Analysis', icon: '📊' },
   ];
 
+  // Chrome Extensions data
+  const chromeExtensions: ChromeExtension[] = [
+    {
+      id: 1,
+      title: "Group Convert Extension",
+      description: "Chrome extension for group conversion optimization.",
+      imageUrl: "https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?q=80&w=2074&auto=format&fit=crop",
+      storeUrl: "https://chrome.google.com/webstore/detail/group-convert-ext/hmfojimmcgpkcploafgmaofmhhcadgdh"
+    },
+    {
+      id: 2,
+      title: "Fill Your Funnel",
+      description: "FunnelBot CF Page Copier for sales funnel optimization.",
+      imageUrl: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop",
+      storeUrl: "https://chromewebstore.google.com/detail/funnelbot-cf-page-copier/cpiagapooikhbopmlcjnpphhmjiegcpi?hl=en"
+    },
+    {
+      id: 3,
+      title: "QuickLinkConvert",
+      description: "Quick link conversion tool for improved customer journey.",
+      imageUrl: "https://images.unsplash.com/photo-1568952433726-3896e3881c65?q=80&w=2070&auto=format&fit=crop",
+      storeUrl: "https://chrome.google.com/webstore/detail/quicklinkconvert/bpcoheoeakioobjanfgleeahdpgkppci?hl=en"
+    }
+  ];
+
   return (
     <section id="skills" className="py-24 px-4">
       <div className="container mx-auto">
@@ -112,6 +146,58 @@ const SkillsSection = () => {
                 <span className="text-portfolio-light">{trait}</span>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Chrome Extensions Section */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-portfolio-light flex items-center mb-6">
+            <Chrome className="text-portfolio-teal mr-3" size={24} /> Chrome Extensions
+          </h3>
+          
+          <p className="text-portfolio-slate mb-8 max-w-3xl">
+            I've developed several Chrome extensions to enhance productivity, social media marketing, and conversion optimization.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {chromeExtensions.map((extension) => (
+              <div 
+                key={extension.id} 
+                className="extension-card bg-portfolio-dark rounded-lg overflow-hidden hover:transform hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="relative h-40 overflow-hidden">
+                  <div className="absolute inset-0 bg-portfolio-teal/20 z-10"></div>
+                  <img 
+                    src={extension.imageUrl} 
+                    alt={extension.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h4 className="text-portfolio-lightest text-xl font-semibold mb-2">{extension.title}</h4>
+                  <p className="text-portfolio-slate mb-4">{extension.description}</p>
+                  <div className="flex gap-4">
+                    <a 
+                      href={extension.storeUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex items-center text-portfolio-teal hover:text-portfolio-lightest transition-colors"
+                    >
+                      <ExternalLink size={16} className="mr-1" /> Chrome Web Store
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <a 
+              href="#projects" 
+              className="text-portfolio-teal hover:text-portfolio-lightest transition-colors flex items-center justify-center gap-2"
+            >
+              <ExternalLink size={16} /> View all Chrome extensions in my projects
+            </a>
           </div>
         </div>
       </div>

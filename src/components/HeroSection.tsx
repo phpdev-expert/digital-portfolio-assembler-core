@@ -32,17 +32,6 @@ const HeroSection = () => {
               </a>
             </div>
           </div>
-          
-          <div className="md:flex-1 flex justify-center md:justify-end animate-fade-in opacity-0" style={{ animationDelay: '300ms' }}>
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-portfolio-teal/20 blur-xl"></div>
-              <img 
-                src="/lovable-uploads/011f91f0-32ac-4fbe-8c2e-1f9dc8b3ef7f.png" 
-                alt="Dhirendra Singh Bisht" 
-                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-portfolio-teal shadow-xl"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>

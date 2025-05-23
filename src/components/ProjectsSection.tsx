@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Chrome } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Define project types
-type Technology = 'all' | 'django' | 'laravel' | 'react' | 'vue';
+type Technology = 'all' | 'django' | 'laravel' | 'react' | 'vue' | 'extensions';
 
 interface Project {
   id: number;
@@ -108,6 +108,79 @@ const ProjectsSection = () => {
       technologies: ['laravel'],
       imageUrl: "/lovable-uploads/3bcddcc8-56dc-41f6-8046-524def589b82.png",
       liveUrl: "https://done.fyi"
+    },
+    // Chrome Extensions added as projects
+    {
+      id: 12,
+      title: "Group Convert Extension",
+      description: "Chrome extension for group conversion optimization.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1457305237443-44c3d5a30b89?q=80&w=2074&auto=format&fit=crop",
+      liveUrl: "https://chrome.google.com/webstore/detail/group-convert-ext/hmfojimmcgpkcploafgmaofmhhcadgdh"
+    },
+    {
+      id: 13,
+      title: "Fill Your Funnel",
+      description: "FunnelBot CF Page Copier for sales funnel optimization.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop",
+      liveUrl: "https://chromewebstore.google.com/detail/funnelbot-cf-page-copier/cpiagapooikhbopmlcjnpphhmjiegcpi?hl=en"
+    },
+    {
+      id: 14,
+      title: "QuickLinkConvert",
+      description: "Quick link conversion tool for improved customer journey.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1568952433726-3896e3881c65?q=80&w=2070&auto=format&fit=crop",
+      liveUrl: "https://chrome.google.com/webstore/detail/quicklinkconvert/bpcoheoeakioobjanfgleeahdpgkppci?hl=en"
+    },
+    {
+      id: 15,
+      title: "AffiliateConvert",
+      description: "ExTraPe Affiliate Link Converter for affiliate marketers.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=2031&auto=format&fit=crop",
+      liveUrl: "https://chromewebstore.google.com/detail/extrape-affiliate-link-co/jkjdnkdcmpidffnghmclamlhadpflhlb?hl=en"
+    },
+    {
+      id: 16,
+      title: "Group Extractor",
+      description: "ESuit Group Members Extractor for social media marketing.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1557838923-2985c318be48?q=80&w=2031&auto=format&fit=crop",
+      liveUrl: "https://chromewebstore.google.com/detail/esuit-group-members-extra/mpfndbkbcmbacdjmphhfapdmjgpfkjmg?hl=en"
+    },
+    {
+      id: 17,
+      title: "SocialPostBuddy",
+      description: "Social media post automation and scheduling tool.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop",
+      liveUrl: "https://chrome.google.com/webstore/detail/socialpostbuddy/fjadmkofajjmeoecmbknkhlfjmdbobmo"
+    },
+    {
+      id: 18,
+      title: "CommentFunnels",
+      description: "Social Fixer for Facebook to enhance social media interactions.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1611606063065-ee7946f0787a?q=80&w=2070&auto=format&fit=crop",
+      liveUrl: "https://chromewebstore.google.com/detail/social-fixer-for-facebook/ifmhoabcaeehkljcfclfiieohkohdgbb?hl=en"
+    },
+    {
+      id: 19,
+      title: "Group Hyper Growth Tools",
+      description: "Tools for rapid social media group growth and engagement.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=2070&auto=format&fit=crop",
+      liveUrl: "https://chrome.google.com/webstore/detail/group-hyper-growth-tools/mldpcnkohpfiddgbmceafgkekgpledfn"
+    },
+    {
+      id: 20,
+      title: "Hume",
+      description: "Productivity and workflow enhancement extension.",
+      technologies: ['extensions'],
+      imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop",
+      liveUrl: "https://chrome.google.com/webstore/detail/hume/idfooimilpjbbihjbeidflghgdahckck"
     }
   ];
 
@@ -115,12 +188,13 @@ const ProjectsSection = () => {
     ? projects 
     : projects.filter(project => project.technologies.includes(activeFilter));
 
-  const filters: { name: string; value: Technology }[] = [
+  const filters: { name: string; value: Technology; icon?: React.ReactNode }[] = [
     { name: 'All', value: 'all' },
     { name: 'Django', value: 'django' },
     { name: 'Laravel', value: 'laravel' },
     { name: 'React', value: 'react' },
-    { name: 'Vue', value: 'vue' }
+    { name: 'Vue', value: 'vue' },
+    { name: 'Chrome Extensions', value: 'extensions', icon: <Chrome size={14} className="mr-1" /> }
   ];
 
   return (
@@ -140,12 +214,13 @@ const ProjectsSection = () => {
               key={filter.value}
               onClick={() => setActiveFilter(filter.value)}
               className={cn(
-                'rounded-full px-6 py-2 mono text-sm',
+                'rounded-full px-6 py-2 mono text-sm flex items-center',
                 activeFilter === filter.value 
                   ? 'bg-portfolio-teal text-portfolio-navy' 
                   : 'bg-transparent text-portfolio-slate border border-portfolio-slate/30 hover:border-portfolio-teal hover:text-portfolio-teal'
               )}
             >
+              {filter.icon && filter.icon}
               {filter.name}
             </Button>
           ))}
@@ -165,6 +240,11 @@ const ProjectsSection = () => {
                   alt={project.title} 
                   className="w-full h-full object-cover"
                 />
+                {project.technologies.includes('extensions') && (
+                  <div className="absolute top-2 right-2 bg-portfolio-teal text-portfolio-navy p-1 rounded-md flex items-center">
+                    <Chrome size={16} className="mr-1" /> Extension
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <h3 className="text-portfolio-lightest text-xl font-semibold mb-2">{project.title}</h3>
@@ -173,9 +253,10 @@ const ProjectsSection = () => {
                   {project.technologies.map(tech => (
                     <span 
                       key={tech} 
-                      className="text-xs mono px-2 py-1 rounded bg-portfolio-navy text-portfolio-teal"
+                      className="text-xs mono px-2 py-1 rounded bg-portfolio-navy text-portfolio-teal flex items-center"
                     >
-                      {tech.charAt(0).toUpperCase() + tech.slice(1)}
+                      {tech === 'extensions' ? <Chrome size={12} className="mr-1" /> : null}
+                      {tech === 'extensions' ? 'Chrome' : tech.charAt(0).toUpperCase() + tech.slice(1)}
                     </span>
                   ))}
                 </div>
