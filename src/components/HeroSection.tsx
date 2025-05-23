@@ -2,13 +2,14 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { Avatar } from '@/components/ui/avatar';
 
 const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center pt-16 px-4">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row md:items-center gap-8">
-          <div className="flex-1 animate-fade-in opacity-0" style={{ animationDelay: '100ms' }}>
+          <div className="flex-1 md:w-3/5 animate-fade-in opacity-0" style={{ animationDelay: '100ms' }}>
             <h1 className="mono text-portfolio-teal text-lg mb-5">
               Hi, my name is
             </h1>
@@ -30,6 +31,17 @@ const HeroSection = () => {
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
+            </div>
+          </div>
+          
+          <div className="md:w-2/5 flex justify-center items-center animate-fade-in opacity-0" style={{ animationDelay: '600ms' }}>
+            <div className="relative w-full max-w-md">
+              <img 
+                src="/lovable-uploads/96a72870-208d-45fc-928e-4b3a28f3987a.png" 
+                alt="Developer working on a laptop" 
+                className="w-full h-auto rounded-lg shadow-xl"
+              />
+              <div className="absolute inset-0 bg-portfolio-teal/10 rounded-lg pointer-events-none"></div>
             </div>
           </div>
         </div>
