@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import { Avatar } from '@/components/ui/avatar';
 
 const HeroSection = () => {
   return (
