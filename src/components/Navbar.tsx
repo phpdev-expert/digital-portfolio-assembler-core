@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,24 +50,13 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Resume Button */}
-        <div className="hidden md:block animate-fade-in" style={{ animationDelay: '400ms' }}>
-          <Button 
-            className="border border-portfolio-teal text-portfolio-teal bg-transparent hover:bg-portfolio-teal/10 rounded px-4 py-2 mono text-sm"
-          >
-            Resume
-          </Button>
-        </div>
-
         {/* Mobile Menu Button */}
-        <Button 
-          variant="ghost" 
-          size="icon" 
+        <button 
           className="md:hidden text-portfolio-light hover:text-portfolio-teal" 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </Button>
+        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -90,13 +78,6 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
-            <li className="mt-8">
-              <Button 
-                className="border border-portfolio-teal text-portfolio-teal bg-transparent hover:bg-portfolio-teal/10 rounded px-6 py-3 mono"
-              >
-                Resume
-              </Button>
-            </li>
           </ul>
         </nav>
       </div>
