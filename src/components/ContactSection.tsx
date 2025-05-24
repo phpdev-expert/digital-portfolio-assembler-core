@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Github, Linkedin, Mail, Send } from 'lucide-react';
+import { Github, Linkedin, Mail, Send, Phone } from 'lucide-react';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -48,26 +48,49 @@ const ContactSection = () => {
           
           <div className="flex justify-center space-x-6 mb-12">
             <a 
-              href="#" 
+              href="https://github.com/dhirendra1123" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
               aria-label="GitHub"
             >
               <Github size={24} />
             </a>
             <a 
-              href="#" 
+              href="https://linkedin.com/in/dhirendra-singh-bisht" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
               aria-label="LinkedIn"
             >
               <Linkedin size={24} />
             </a>
             <a 
-              href="mailto:example@example.com" 
+              href="mailto:dhirendra1123@gmail.com" 
               className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
               aria-label="Email"
             >
               <Mail size={24} />
             </a>
+            <a 
+              href="tel:+918437711066" 
+              className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
+              aria-label="Phone"
+            >
+              <Phone size={24} />
+            </a>
+          </div>
+
+          {/* Contact Details */}
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+            <div className="flex items-center justify-center gap-3 text-portfolio-slate">
+              <Mail size={18} className="text-portfolio-teal" />
+              <span>dhirendra1123@gmail.com</span>
+            </div>
+            <div className="flex items-center justify-center gap-3 text-portfolio-slate">
+              <Phone size={18} className="text-portfolio-teal" />
+              <span>+91 8437711066</span>
+            </div>
           </div>
 
           <div className="bg-portfolio-dark rounded-lg p-8">
