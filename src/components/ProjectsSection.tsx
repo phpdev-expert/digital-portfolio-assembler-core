@@ -322,9 +322,7 @@ const ProjectsSection = () => {
           <p className="text-portfolio-slate mb-6 text-sm sm:text-base px-4">
             These are just a few of my projects. Visit my GitHub to see more of my work.
           </p>
-          <Button className="bg-transparent hover:bg-portfolio-teal/10 text-portfolio-teal border border-portfolio-teal rounded px-4 sm:px-6 py-3 text-sm sm:text-base">
-            <Github size={16} className="mr-2" /> View More on GitHub
-          </Button>
+          
         </div>
       </div>
     </section>
