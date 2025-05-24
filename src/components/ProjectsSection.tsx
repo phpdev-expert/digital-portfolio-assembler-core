@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Chrome } from 'lucide-react';
@@ -260,19 +259,24 @@ const ProjectsSection = () => {
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredProjects.map((project) => (
             <div 
               key={project.id} 
-              className="project-card bg-portfolio-dark rounded-lg overflow-hidden"
+              className="project-card bg-portfolio-dark rounded-lg overflow-hidden shadow-lg"
             >
-              <div className="relative w-full h-48 overflow-hidden">
+              <div className="relative w-full h-40 sm:h-48 overflow-hidden bg-portfolio-navy">
                 <div className="absolute inset-0 bg-portfolio-teal/20 z-10"></div>
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
-                  className="w-full h-full object-cover object-center"
+                  className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
                   loading="lazy"
+                  onError={(e) => {
+                    console.log(`Failed to load image for ${project.title}: ${project.imageUrl}`);
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                 />
                 {project.technologies.includes('extensions') && (
                   <div className="absolute top-2 right-2 bg-portfolio-teal text-portfolio-navy p-1 rounded-md flex items-center text-xs z-20">
@@ -280,9 +284,9 @@ const ProjectsSection = () => {
                   </div>
                 )}
               </div>
-              <div className="p-6">
-                <h3 className="text-portfolio-lightest text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-portfolio-slate mb-4 text-sm">{project.description}</p>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-portfolio-lightest text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
+                <p className="text-portfolio-slate mb-4 text-sm leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map(tech => (
                     <span 
@@ -295,7 +299,13 @@ const ProjectsSection = () => {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-portfolio-light hover:text-portfolio-teal">
+                  <a 
+                    href={project.liveUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-portfolio-light hover:text-portfolio-teal transition-colors"
+                    aria-label={`Visit ${project.title}`}
+                  >
                     <ExternalLink size={20} />
                   </a>
                 </div>
