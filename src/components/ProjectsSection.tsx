@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Chrome } from 'lucide-react';
@@ -230,23 +231,23 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 px-4">
-      <div className="container mx-auto">
-        <div className="flex items-center mb-12">
-          <h2 className="text-3xl font-bold text-portfolio-light flex items-center">
-            <span className="text-portfolio-teal mono text-xl mr-4">02.</span> Projects I've Built
+    <section id="projects" className="py-16 sm:py-24 px-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="flex items-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-portfolio-light flex items-center">
+            <span className="text-portfolio-teal mono text-lg sm:text-xl mr-3 sm:mr-4">02.</span> Projects I've Built
           </h2>
-          <div className="h-px bg-portfolio-slate/30 flex-grow ml-4"></div>
+          <div className="h-px bg-portfolio-slate/30 flex-grow ml-3 sm:ml-4"></div>
         </div>
 
         {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2">
           {filters.map((filter) => (
             <Button
               key={filter.value}
               onClick={() => setActiveFilter(filter.value)}
               className={cn(
-                'rounded-full px-6 py-2 mono text-sm flex items-center',
+                'rounded-full px-3 sm:px-6 py-2 mono text-xs sm:text-sm flex items-center',
                 activeFilter === filter.value 
                   ? 'bg-portfolio-teal text-portfolio-navy' 
                   : 'bg-transparent text-portfolio-slate border border-portfolio-slate/30 hover:border-portfolio-teal hover:text-portfolio-teal'
@@ -259,41 +260,44 @@ const ProjectsSection = () => {
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-2 sm:px-0">
           {filteredProjects.map((project) => (
             <div 
               key={project.id} 
-              className="project-card bg-portfolio-dark rounded-lg overflow-hidden shadow-lg"
+              className="project-card bg-portfolio-dark rounded-lg overflow-hidden shadow-lg w-full"
             >
-              <div className="relative w-full h-40 sm:h-48 overflow-hidden bg-portfolio-navy">
+              <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-portfolio-navy">
                 <div className="absolute inset-0 bg-portfolio-teal/20 z-10"></div>
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
                   className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
                   loading="lazy"
+                  style={{ minHeight: '192px' }}
                   onError={(e) => {
                     console.log(`Failed to load image for ${project.title}: ${project.imageUrl}`);
                     const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
+                    target.style.backgroundColor = '#1e293b';
+                    target.style.display = 'block';
+                    target.alt = `${project.title} - Image not available`;
                   }}
                 />
                 {project.technologies.includes('extensions') && (
                   <div className="absolute top-2 right-2 bg-portfolio-teal text-portfolio-navy p-1 rounded-md flex items-center text-xs z-20">
-                    <Chrome size={14} className="mr-1" /> Extension
+                    <Chrome size={12} className="mr-1" /> Extension
                   </div>
                 )}
               </div>
               <div className="p-4 sm:p-6">
-                <h3 className="text-portfolio-lightest text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-portfolio-slate mb-4 text-sm leading-relaxed">{project.description}</p>
+                <h3 className="text-portfolio-lightest text-lg sm:text-xl font-semibold mb-2 line-clamp-2">{project.title}</h3>
+                <p className="text-portfolio-slate mb-4 text-sm leading-relaxed line-clamp-3">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map(tech => (
                     <span 
                       key={tech} 
                       className="text-xs mono px-2 py-1 rounded bg-portfolio-navy text-portfolio-teal flex items-center"
                     >
-                      {tech === 'extensions' ? <Chrome size={12} className="mr-1" /> : null}
+                      {tech === 'extensions' ? <Chrome size={10} className="mr-1" /> : null}
                       {tech === 'extensions' ? 'Chrome' : tech.charAt(0).toUpperCase() + tech.slice(1)}
                     </span>
                   ))}
@@ -303,10 +307,10 @@ const ProjectsSection = () => {
                     href={project.liveUrl} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="text-portfolio-light hover:text-portfolio-teal transition-colors"
+                    className="text-portfolio-light hover:text-portfolio-teal transition-colors p-2 hover:bg-portfolio-navy rounded"
                     aria-label={`Visit ${project.title}`}
                   >
-                    <ExternalLink size={20} />
+                    <ExternalLink size={18} />
                   </a>
                 </div>
               </div>
@@ -314,12 +318,12 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-portfolio-slate mb-6">
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-portfolio-slate mb-6 text-sm sm:text-base px-4">
             These are just a few of my projects. Visit my GitHub to see more of my work.
           </p>
-          <Button className="bg-transparent hover:bg-portfolio-teal/10 text-portfolio-teal border border-portfolio-teal rounded px-6 py-3">
-            <Github size={18} className="mr-2" /> View More on GitHub
+          <Button className="bg-transparent hover:bg-portfolio-teal/10 text-portfolio-teal border border-portfolio-teal rounded px-4 sm:px-6 py-3 text-sm sm:text-base">
+            <Github size={16} className="mr-2" /> View More on GitHub
           </Button>
         </div>
       </div>
