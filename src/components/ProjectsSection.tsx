@@ -109,7 +109,6 @@ const ProjectsSection = () => {
       imageUrl: "/lovable-uploads/3bcddcc8-56dc-41f6-8046-524def589b82.png",
       liveUrl: "https://done.fyi"
     },
-    // New projects added
     {
       id: 21,
       title: "RecycleBlu",
@@ -261,21 +260,22 @@ const ProjectsSection = () => {
         </div>
 
         {/* Projects grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div 
               key={project.id} 
               className="project-card bg-portfolio-dark rounded-lg overflow-hidden"
             >
-              <div className="relative h-48 sm:h-52 md:h-48 overflow-hidden">
+              <div className="relative w-full h-48 overflow-hidden">
                 <div className="absolute inset-0 bg-portfolio-teal/20 z-10"></div>
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
                   className="w-full h-full object-cover object-center"
+                  loading="lazy"
                 />
                 {project.technologies.includes('extensions') && (
-                  <div className="absolute top-2 right-2 bg-portfolio-teal text-portfolio-navy p-1 rounded-md flex items-center text-xs">
+                  <div className="absolute top-2 right-2 bg-portfolio-teal text-portfolio-navy p-1 rounded-md flex items-center text-xs z-20">
                     <Chrome size={14} className="mr-1" /> Extension
                   </div>
                 )}
