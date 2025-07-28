@@ -23,7 +23,6 @@ const Index = () => {
           <AboutSection />
           <ProjectsSection />
           <SkillsSection />
-          <ContactSection />
         </ScrollObserver>
       </main>
       <Footer />
