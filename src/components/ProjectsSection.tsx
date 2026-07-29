@@ -1,11 +1,11 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Chrome } from 'lucide-react';
+import { ExternalLink, Github, Chrome, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Define project types
-type Technology = 'all' | 'django' | 'laravel' | 'react' | 'vue' | 'extensions' | 'php';
+type Technology = 'all' | 'django' | 'laravel' | 'react' | 'vue' | 'extensions' | 'php' | 'ai';
 
 interface Project {
   id: number;
@@ -21,6 +21,48 @@ const ProjectsSection = () => {
 
   // Project data with updated real project images and new projects
   const projects: Project[] = [
+    // ===== AI / GenAI projects =====
+    {
+      id: 101,
+      title: "mium.chat",
+      description: "AI-powered text assistant — a GenAI \"multi-tool for text\" built on LLM APIs for chat, writing, and content generation.",
+      technologies: ['ai', 'react'],
+      imageUrl: "/lovable-uploads/screen-mium.jpeg",
+      liveUrl: "https://chat.mium.de"
+    },
+    {
+      id: 102,
+      title: "Lebenslauf Kostenlos",
+      description: "AI CV/résumé builder that parses inputs and generates tailored, professional resumes using an LLM + RAG pipeline.",
+      technologies: ['ai', 'react'],
+      imageUrl: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop",
+      liveUrl: "https://lebenslaufkostenlos.de"
+    },
+    {
+      id: 103,
+      title: "Ajaia Docs",
+      description: "RAG-powered knowledge platform — upload documents and get AI answers grounded in your files, with file sharing and collaborative editing built in.",
+      technologies: ['ai', 'react', 'django'],
+      imageUrl: "/lovable-uploads/screen-ajaia.jpeg",
+      liveUrl: "https://ajaia-docs-mkhz.onrender.com"
+    },
+    // PLACEHOLDER: replace title/description/liveUrl with your real project details.
+    {
+      id: 104,
+      title: "Autonomous AI Agent",
+      description: "Multi-step AI agent using LangChain with tool-calling to automate research and workflow tasks end to end.",
+      technologies: ['ai', 'react'],
+      imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2072&auto=format&fit=crop",
+      liveUrl: "#"
+    },
+    {
+      id: 105,
+      title: "FinCalcHub",
+      description: "AI-powered suite of 143+ financial calculators (investments, loans, tax, retirement) with an AI assistant and plain-English insights, built as a fast offline-capable PWA.",
+      technologies: ['ai', 'react'],
+      imageUrl: "/lovable-uploads/screen-fincalchub.jpeg",
+      liveUrl: "https://www.fincalchub.org"
+    },
     {
       id: 1,
       title: "PodPage",
@@ -222,6 +264,7 @@ const ProjectsSection = () => {
 
   const filters: { name: string; value: Technology; icon?: React.ReactNode }[] = [
     { name: 'All', value: 'all' },
+    { name: 'AI / GenAI', value: 'ai', icon: <Sparkles size={14} className="mr-1" /> },
     { name: 'Django', value: 'django' },
     { name: 'Laravel', value: 'laravel' },
     { name: 'PHP', value: 'php' },
@@ -231,13 +274,13 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-16 sm:py-24 px-4 visible">
+    <section id="projects" className="surface-alt py-16 sm:py-24 px-4 visible">
       <div className="container mx-auto max-w-7xl">
         <div className="flex items-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-portfolio-light flex items-center">
-            <span className="text-portfolio-teal mono text-lg sm:text-xl mr-3 sm:mr-4">02.</span> Projects I've Built
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-portfolio-light flex items-center gap-3 sm:gap-4">
+            <span className="section-num">02</span> Projects I've Built
           </h2>
-          <div className="h-px bg-portfolio-slate/30 flex-grow ml-3 sm:ml-4"></div>
+          <div className="divider-gradient flex-grow ml-4 sm:ml-6"></div>
         </div>
 
         {/* Filter buttons */}
@@ -262,12 +305,12 @@ const ProjectsSection = () => {
         {/* Projects grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-2 sm:px-0">
           {filteredProjects.map((project) => (
-            <div 
-              key={project.id} 
-              className="project-card bg-portfolio-dark rounded-lg overflow-hidden shadow-lg w-full"
+            <div
+              key={project.id}
+              className="project-card glass rounded-xl overflow-hidden w-full group"
             >
-              <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-portfolio-navy">
-                <div className="absolute inset-0 bg-portfolio-teal/20 z-10"></div>
+              <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-portfolio-dark">
+                <div className="absolute inset-0 bg-gradient-to-t from-portfolio-navy/10 to-transparent z-10 transition-all duration-300"></div>
                 <img 
                   src={project.imageUrl} 
                   alt={project.title} 
@@ -287,6 +330,11 @@ const ProjectsSection = () => {
                     <Chrome size={12} className="mr-1" /> Extension
                   </div>
                 )}
+                {project.technologies.includes('ai') && (
+                  <div className="absolute top-2 right-2 bg-gradient-to-r from-portfolio-teal to-portfolio-accent text-portfolio-navy font-semibold px-2 py-1 rounded-md flex items-center text-xs z-20 shadow-lg">
+                    <Sparkles size={12} className="mr-1" /> AI
+                  </div>
+                )}
               </div>
               <div className="p-4 sm:p-6">
                 <h3 className="text-portfolio-lightest text-lg sm:text-xl font-semibold mb-2 line-clamp-2">{project.title}</h3>
@@ -295,23 +343,31 @@ const ProjectsSection = () => {
                   {project.technologies.map(tech => (
                     <span 
                       key={tech} 
-                      className="text-xs mono px-2 py-1 rounded bg-portfolio-navy text-portfolio-teal flex items-center"
+                      className="text-xs mono px-2 py-1 rounded bg-portfolio-dark text-portfolio-teal border border-portfolio-teal/20 flex items-center"
                     >
                       {tech === 'extensions' ? <Chrome size={10} className="mr-1" /> : null}
-                      {tech === 'extensions' ? 'Chrome' : tech.charAt(0).toUpperCase() + tech.slice(1)}
+                      {tech === 'ai' ? <Sparkles size={10} className="mr-1" /> : null}
+                      {tech === 'extensions' ? 'Chrome' : tech === 'ai' ? 'AI' : tech.charAt(0).toUpperCase() + tech.slice(1)}
                     </span>
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <a 
-                    href={project.liveUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="text-portfolio-light hover:text-portfolio-teal transition-colors p-2 hover:bg-portfolio-navy rounded"
-                    aria-label={`Visit ${project.title}`}
-                  >
-                    <ExternalLink size={18} />
-                  </a>
+                  {project.liveUrl === '#' ? (
+                    <span className="mono text-xs text-portfolio-slate/70 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-portfolio-slate/50" /> Coming soon
+                    </span>
+                  ) : (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mono text-xs text-portfolio-teal hover:text-portfolio-lightest transition-colors flex items-center gap-1.5 group/link"
+                      aria-label={`Visit ${project.title}`}
+                    >
+                      Visit site
+                      <ExternalLink size={14} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
 
 @layer base {
   :root {
@@ -75,7 +74,7 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -92,24 +91,153 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-portfolio-navy text-portfolio-slate font-sans;
-    font-family: 'Inter', sans-serif;
+    @apply bg-portfolio-navy text-portfolio-slate font-sans antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Soft ambient color wash so the page never reads as sterile flat white */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(46rem 46rem at 10% -8%, rgba(13, 148, 136, 0.08), transparent 60%),
+      radial-gradient(40rem 40rem at 100% 2%, rgba(79, 70, 229, 0.07), transparent 55%),
+      radial-gradient(38rem 38rem at 50% 118%, rgba(8, 145, 178, 0.06), transparent 60%);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-portfolio-light;
+    @apply text-portfolio-light font-display tracking-tight;
   }
 
+  ::selection {
+    background: rgba(13, 148, 136, 0.15);
+    color: #0F172A;
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #F5F7FA; }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 999px;
+    border: 2px solid #F5F7FA;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #0D9488; }
+}
+
+@layer components {
   .mono {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* Subtle gradient accent — used sparingly on key words */
+  .gradient-text {
+    background: linear-gradient(100deg, #0D9488, #0891B2 55%, #4F46E5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .gradient-text-animated {
+    background: linear-gradient(100deg, #0D9488, #0891B2 38%, #4F46E5 70%, #0D9488);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradient-x 8s ease infinite;
+  }
+
+  /* Clean light card surface with subtle depth */
+  .glass {
+    background: linear-gradient(180deg, #FFFFFF, #FAFBFE);
+    border: 1px solid rgba(15, 23, 42, 0.07);
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 28px -18px rgba(15, 23, 42, 0.16);
+  }
+
+  /* Featured highlight card — soft tinted wash + accent border + lift */
+  .gradient-border {
+    position: relative;
+    background:
+      radial-gradient(50rem 26rem at 100% 0%, rgba(79, 70, 229, 0.07), transparent 60%),
+      linear-gradient(135deg, rgba(13, 148, 136, 0.08), rgba(255, 255, 255, 0) 42%),
+      #FFFFFF;
+    border: 1px solid rgba(13, 148, 136, 0.22);
+    box-shadow: 0 24px 60px -34px rgba(13, 148, 136, 0.4);
+  }
+
+  /* Alternating light section band */
+  .surface-alt {
+    background: linear-gradient(180deg, #F7F9FD, #F1F5FB);
+  }
+
+  /* Bold animated gradient button */
+  .btn-gradient {
+    background-image: linear-gradient(100deg, #0D9488, #0891B2 52%, #4F46E5);
+    background-size: 180% auto;
+    color: #fff;
+    box-shadow: 0 12px 30px -10px rgba(13, 148, 136, 0.5);
+    transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  .btn-gradient:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -12px rgba(79, 70, 229, 0.5);
+  }
+
+  /* Gradient section-number badge */
+  .section-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+    background-image: linear-gradient(135deg, #0D9488, #4F46E5);
+    border-radius: 0.6rem;
+    padding: 0.4rem 0.55rem;
+    box-shadow: 0 8px 18px -8px rgba(13, 148, 136, 0.65);
+  }
+
+  /* Tech constellation backdrop (About graphic) */
+  .tech-constellation {
+    background-color: #FBFDFF;
+    background-image:
+      radial-gradient(28rem 28rem at 50% 50%, rgba(79, 70, 229, 0.06), transparent 70%),
+      linear-gradient(rgba(13, 148, 136, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(13, 148, 136, 0.06) 1px, transparent 1px);
+    background-size: 100% 100%, 26px 26px, 26px 26px;
+  }
+
+  /* Gradient divider line */
+  .divider-gradient {
+    height: 2px;
+    background: linear-gradient(90deg, rgba(13, 148, 136, 0.9), rgba(79, 70, 229, 0.45) 45%, transparent);
+    border-radius: 999px;
+  }
+
+  /* Kept as a no-op decorative element on light theme */
+  .aurora-blob {
+    display: none;
   }
 }
 
+/* Scroll reveal */
 .section-fade {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .section-fade.visible {
@@ -117,11 +245,16 @@
   transform: translateY(0);
 }
 
+/* Cards */
 .project-card {
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: linear-gradient(180deg, #FFFFFF, #FAFBFE);
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05), 0 12px 30px -22px rgba(15, 23, 42, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px -24px rgba(13, 148, 136, 0.28);
+  border-color: rgba(13, 148, 136, 0.45);
 }

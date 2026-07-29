@@ -36,22 +36,23 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4">
+    <section id="contact" className="surface-alt py-24 px-4">
       <div className="container mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl font-bold text-portfolio-light flex items-center justify-center mb-3">
-            <span className="text-portfolio-teal mono text-xl mr-4">04.</span> Get In Touch
+          <p className="mono text-portfolio-teal text-sm mb-3">04. What's next?</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+            <span className="gradient-text">Let's build something</span>
           </h2>
-          <p className="text-portfolio-slate mb-8">
-            I'm currently open to new opportunities and collaborations. Whether you have a project in mind or just want to say hi, feel free to reach out!
+          <p className="text-portfolio-slate mb-8 max-w-xl mx-auto">
+            I'm currently open to new opportunities and collaborations — especially AI-driven products. Whether you have a project in mind or just want to say hi, my inbox is always open.
           </p>
           
           <div className="flex justify-center space-x-6 mb-12">
             <a 
-              href="https://github.com/dhirendra1123" 
+              href="https://github.com/phpdev-expert"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
+              className="text-portfolio-slate hover:text-portfolio-teal hover:-translate-y-1 transition-all duration-300 p-3 glass rounded-full hover:border-portfolio-teal/50"
               aria-label="GitHub"
             >
               <Github size={24} />
@@ -60,21 +61,21 @@ const ContactSection = () => {
               href="https://linkedin.com/in/dhirendra-singh-bisht" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
+              className="text-portfolio-slate hover:text-portfolio-teal hover:-translate-y-1 transition-all duration-300 p-3 glass rounded-full hover:border-portfolio-teal/50"
               aria-label="LinkedIn"
             >
               <Linkedin size={24} />
             </a>
             <a 
               href="mailto:dhirendra1123@gmail.com" 
-              className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
+              className="text-portfolio-slate hover:text-portfolio-teal hover:-translate-y-1 transition-all duration-300 p-3 glass rounded-full hover:border-portfolio-teal/50"
               aria-label="Email"
             >
               <Mail size={24} />
             </a>
             <a 
               href="tel:+918437711066" 
-              className="text-portfolio-slate hover:text-portfolio-teal transition-colors p-3 bg-portfolio-dark rounded-full"
+              className="text-portfolio-slate hover:text-portfolio-teal hover:-translate-y-1 transition-all duration-300 p-3 glass rounded-full hover:border-portfolio-teal/50"
               aria-label="Phone"
             >
               <Phone size={24} />
@@ -93,8 +94,9 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="bg-portfolio-dark rounded-lg p-8">
-            <form onSubmit={handleSubmit}>
+          <div className="glass rounded-2xl p-8 text-left relative overflow-hidden">
+            <div className="aurora-blob bg-portfolio-teal/20 w-72 h-72 -bottom-24 -left-16" />
+            <form onSubmit={handleSubmit} className="relative">
               <div className="grid grid-cols-1 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-portfolio-light text-sm font-medium mb-2 text-left">
@@ -105,7 +107,7 @@ const ContactSection = () => {
                     name="name"
                     type="text"
                     required
-                    className="bg-portfolio-navy border-portfolio-slate/30 focus:border-portfolio-teal"
+                    className="bg-portfolio-dark border-portfolio-slate/20 focus:border-portfolio-teal text-portfolio-light"
                     placeholder="John Doe"
                     value={formData.name}
                     onChange={handleChange}
@@ -121,7 +123,7 @@ const ContactSection = () => {
                     name="email"
                     type="email"
                     required
-                    className="bg-portfolio-navy border-portfolio-slate/30 focus:border-portfolio-teal"
+                    className="bg-portfolio-dark border-portfolio-slate/20 focus:border-portfolio-teal text-portfolio-light"
                     placeholder="john@example.com"
                     value={formData.email}
                     onChange={handleChange}
@@ -136,7 +138,7 @@ const ContactSection = () => {
                     id="message"
                     name="message"
                     required
-                    className="bg-portfolio-navy border-portfolio-slate/30 focus:border-portfolio-teal min-h-[150px]"
+                    className="bg-portfolio-dark border-portfolio-slate/20 focus:border-portfolio-teal text-portfolio-light min-h-[150px]"
                     placeholder="Your message here..."
                     value={formData.message}
                     onChange={handleChange}
@@ -146,13 +148,14 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-transparent hover:bg-portfolio-teal/10 text-portfolio-teal border border-portfolio-teal rounded px-6 py-3 flex items-center justify-center gap-2"
+                  className="btn-gradient relative overflow-hidden font-semibold rounded-lg px-6 py-3 flex items-center justify-center gap-2 group"
                 >
                   {isSubmitting ? 'Sending...' : (
                     <>
-                      Send Message <Send size={16} />
+                      Send Message <Send size={16} className="group-hover:translate-x-1 transition-transform" />
                     </>
                   )}
+                  <span className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent" />
                 </Button>
               </div>
             </form>
