@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Chrome, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { asset } from '@/lib/asset';
 
 // Define project types
 type Technology = 'all' | 'django' | 'laravel' | 'react' | 'vue' | 'extensions' | 'php' | 'ai';
@@ -311,9 +312,9 @@ const ProjectsSection = () => {
             >
               <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-portfolio-dark">
                 <div className="absolute inset-0 bg-gradient-to-t from-portfolio-navy/10 to-transparent z-10 transition-all duration-300"></div>
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title} 
+                <img
+                  src={asset(project.imageUrl)}
+                  alt={project.title}
                   className="w-full h-full object-cover object-top transition-transform duration-300 hover:scale-105"
                   loading="lazy"
                   style={{ minHeight: '192px' }}

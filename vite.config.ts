@@ -5,6 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // GitHub Pages serves this project site under /<repo-name>/.
+  // Keep the root base for local dev/preview.
+  base: mode === "production" ? "/digital-portfolio-assembler-core/" : "/",
   server: {
     host: "::",
     port: 8080,

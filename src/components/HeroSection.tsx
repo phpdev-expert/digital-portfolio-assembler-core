@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { asset } from '@/lib/asset';
 
 const HeroSection = () => {
   const stack = ['LLMs', 'RAG', 'AI Agents', 'React', 'Django', 'Laravel', 'TypeScript'];
@@ -69,7 +70,7 @@ const HeroSection = () => {
               <div className="absolute -inset-3 bg-gradient-to-tr from-portfolio-teal/15 to-portfolio-accent/15 rounded-3xl blur-2xl opacity-70" />
               <div className="relative rounded-2xl overflow-hidden bg-white border border-portfolio-slate/15 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.25)]">
                 <img
-                  src="/lovable-uploads/96a72870-208d-45fc-928e-4b3a28f3987a.png"
+                  src={asset("/lovable-uploads/96a72870-208d-45fc-928e-4b3a28f3987a.png")}
                   alt="Dhirendra Singh Bisht — AI &amp; full-stack developer"
                   className="w-full h-auto rounded-2xl transition-transform duration-500 group-hover:scale-[1.03]"
                 />
